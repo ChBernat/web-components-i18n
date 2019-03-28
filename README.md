@@ -20,6 +20,8 @@ Sidenote: To use `extract` you have to create files first. For instance - you ha
 
 ### Todo
 - Clean up
+- Tests
+- Make it more bulletproof
 - Create translation files automatically by giving an array of names in the config.
 - Export translation files to google drive.
 - Import translation files from google drive.
