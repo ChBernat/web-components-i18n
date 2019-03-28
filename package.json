@@ -12,5 +12,6 @@
     "recursive-readdir": "^2.2.2",
     "yargs": "^13.2.2"
   },
+  "repository": "https://github.com/ChBernat/web-components-i18n",
   "keywords": ["stencil", "translations", "i18n", "stencil.js", "web components", "html attributes", "cli"]
 }
