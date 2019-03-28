@@ -1,17 +1,31 @@
 {
-  "name": "web-components-i18n",
-  "version": "0.0.1",
+  "name": "wc-translate",
+  "version": "0.0.11",
   "description": "Package used for working with i18n (translations) in stencil.js.",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "scripts": {},
+  "bin": {
+    "wc-translate": "bin/commands.js"
   },
+  "preferGlobal": false,
   "author": "Christopher Bernat (bernat.christopher@gmail.com)",
   "license": "ISC",
   "dependencies": {
     "recursive-readdir": "^2.2.2",
     "yargs": "^13.2.2"
   },
-  "repository": "https://github.com/ChBernat/web-components-i18n",
-  "keywords": ["stencil", "translations", "i18n", "stencil.js", "web components", "html attributes", "cli"]
+  "homepage": "https://github.com/ChBernat/web-components-i18n#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChBernat/web-components-i18n.git"
+  },
+  "keywords": [
+    "stencil",
+    "translations",
+    "i18n",
+    "stencil.js",
+    "web components",
+    "html attributes",
+    "cli"
+  ]
 }

@@ -1,7 +1,7 @@
 # Web-Components-i18n
  This repository was made mostly with Stencil.js in mind but hopefully will receive more love and will be extended to cover more web components loving frameworks.
  
- ### How to?
+### How to?
  1. Run `init` to create initial configuration in your main directory.
  2. Create directory you've provided in config (default is `src/locales/i18n`) and create there a default translation file (derfault is `en.js`).
  3. Run `extract` to extract all of your translations.
