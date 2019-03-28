@@ -1,0 +1,16 @@
+{
+  "name": "web-components-i18n",
+  "version": "0.0.1",
+  "description": "Package used for working with i18n (translations) in stencil.js.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Christopher Bernat (bernat.christopher@gmail.com)",
+  "license": "ISC",
+  "dependencies": {
+    "recursive-readdir": "^2.2.2",
+    "yargs": "^13.2.2"
+  },
+  "keywords": ["stencil", "translations", "i18n", "stencil.js", "web components", "html attributes", "cli"]
+}

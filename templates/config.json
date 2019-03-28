@@ -1,0 +1,7 @@
+{
+  "mainTranslationFileName": "en.js",
+  "translationsPath": "src/locales/i18n",
+  "componentsPath": "src/components",
+  "omitExtensions": ["*.css", "*.spec.ts, *.scss, *.spec.js, *.spec.*"],
+  "HTMLAttributes": ["entry", "trText", "trName", "trLabel", "trHelperText", "trErrorText"]
+}
