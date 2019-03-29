@@ -1,4 +1,6 @@
 function stringifyTranslationContent(stringifiedTranslation, filePath) {
+  if(typeof stringifiedTranslation !== "string")
+    stringifiedTranslation = JSON.stringify(stringifiedTranslation);
   let prefix = '';
   if (filePath.includes('.ts'))
     prefix = 'export default ';

@@ -10,5 +10,6 @@ require('yargs')
   .command('init', 'Generates basic configuration.', (yargs => {}), copyConfig)
   .command('extract-default', 'Extracts default translation.', (yargs => {}), getAllDefaultLocales)
   .command('extract', 'Extracts all translation.', (yargs => {}), extractAllTranslations)
+  .command('extract-all', 'Extracts all translation.', (yargs => {}), () => getAllDefaultLocales().then(extractAllTranslations))
   .help()
   .argv;
