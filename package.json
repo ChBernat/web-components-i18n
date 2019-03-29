@@ -1,6 +1,6 @@
 {
   "name": "wc-translate",
-  "version": "0.0.11",
+  "version": "0.0.13",
   "description": "Package used for working with i18n (translations) in stencil.js.",
   "main": "index.js",
   "scripts": {},

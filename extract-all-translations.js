@@ -29,8 +29,18 @@ function findDefaultTranslation(translations) {
   }
 }
 
+function checkTranslationAgainstDefault(translation, enTranslation) {
+  const transKeys = Object.keys(translation);
+  transKeys.forEach(key => {
+    if (!enTranslation[key])
+      delete translation[key];
+  });
+  return translation;
+}
+
 function fillTranslation(translation, enTranslation) {
   const transKeys = Object.keys(enTranslation);
+  translation = checkTranslationAgainstDefault(translation, enTranslation);
   transKeys.forEach(key => {
     if (!translation[key])
       translation[key] = 'ERR! No translation!';
