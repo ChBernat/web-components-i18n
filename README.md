@@ -9,6 +9,19 @@
 ### How it works?
 The module fills your files with translations found in your components. Module saves them as objects with `key` being an original string and `value` being a translation. For default language they are the same, for any additional language it will be `ERR! No translation!` until you provide translations to this file.
 
+To extract translations make sure that your components are using attributes given in config - for instance `trText="Text to be translated."` will generated a `key-pair` in default translation of `"Text to be translated.": "Text to be translated."` and in every other locale file: `"Text to be translated.": "ERR! No translation!"`.
+
+This module does more though - it can also extract translations from `ts`/`js` files and even work with them! All you need to use is a function called `reduceTranslations` which gets following arguments:
+
+1. `translations` translations object (np. content of `default translation`).
+2. `translationEntry` which is essentially a text that is meant to be translated. The one that serves as a `key` in locale files.
+3. `vars` optional parameter to work with string literals that contain variables.
+
+##### String literals
+To work with string literals be sure to put them as simple strings, for instance: `"This is variable ${this.world}"` and to use `this` quantifier. 
+
+**Side note:** This behaviour will be altered soon and need of quantifier will be deprecated.
+
  ### CLI
  This module is, for now, only a CLI with following commands:
  
