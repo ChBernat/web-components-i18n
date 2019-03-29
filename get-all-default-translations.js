@@ -3,22 +3,31 @@ const path = require("path");
 const config = require('./config');
 const recursive = require("recursive-readdir");
 const {
-  stringifyTranslationFile,
   stringifyTranslationContent
 } = require('./helpers/handle-different-file-types');
 
 const BASE_PATH = config.componentsPath;
 const translatableAttributes = config.HTMLAttributes;
+const inCodeRegexp = /reduceTranslations\(.*([`'"]).*\1\)/gm;
 
-function getEntries(compEntries) {
-  return compEntries.map(entry => entry.split('=')[1]);
+
+function addTranslations(entries, translations) { // @Todo more bulletproof solution
+  return entries.forEach(entry => {
+    if (entry) {
+      if (entry.includes('reduceTranslations')) {
+        entry = handleInCodeTranslations(entry);
+      } else {
+        entry = entry.split('=')[1];
+        entry = entry.replace(/"/g, '');
+      }
+      translations[entry] = entry;
+    }
+  });
 }
 
-function addTranslations(entries, translations) {
-  return entries.forEach(entry => {
-    entry = entry.replace(/"/g, '');
-    translations[entry] = entry;
-  });
+function handleInCodeTranslations(entry) {
+  entry = entry.match(/([`'"]).*\1/gm)[0];
+  return entry.substring(1, entry.length - 1)
 }
 
 function getRawEntries(file) {
@@ -26,6 +35,7 @@ function getRawEntries(file) {
   translatableAttributes.forEach(attr => {
     const regFind = `${attr}="(.*?)"`;
     const regexp = new RegExp(regFind, "gmi");
+    entries = entries.concat(file.match(inCodeRegexp));
     entries = entries.concat(file.match(regexp));
   });
   return entries.filter(entry => !!entry);
@@ -37,7 +47,7 @@ function readFiles(filePaths) {
     const file = fs.readFileSync(filePath, "UTF-8");
     let entries = getRawEntries(file);
     if (entries.length) {
-      addTranslations(getEntries(entries), translations);
+      addTranslations(entries, translations);
     }
   });
   return translations;
